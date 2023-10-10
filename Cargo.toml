@@ -1,0 +1,39 @@
+[package]
+name = "scihub-search"
+version = "0.1.0"
+edition = "2021"
+description = "Template for starting a Yew project using Trunk"
+readme = "README.md"
+repository = "https://github.com/yewstack/yew-trunk-minimal-template"
+license = "MIT OR Apache-2.0"
+keywords = ["yew", "trunk"]
+categories = ["gui", "wasm", "web-programming"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+yew = { version="0.21.0", features=["csr"] }
+gloo = "0.10.0"
+wasm-bindgen-futures ="0.4.37"
+reqwest-wasm="0.11.16"
+yew-router = "0.18.0"
+sxd-xpath="0.4.2"
+sxd-document="0.3.2"
+web-sys = {version = "0.3.64", features=["HtmlInputElement"]}
+wasm-bindgen = "0.2.87"
+yew-hooks="0.3.0"
+
+
+[profile.release]
+# less code to include into binary
+panic = 'abort'
+# optimization over all codebase ( better optimization, slower build )
+codegen-units = 1
+# optimization for size ( more aggressive )
+opt-level = 'z'
+# optimization for size
+# opt-level = 's'
+# link time optimization using using whole-program analysis
+lto = true
+
+
+
